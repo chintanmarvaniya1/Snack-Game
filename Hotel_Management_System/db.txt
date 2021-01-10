@@ -1,0 +1,206 @@
+mysql: [Warning] C:\Program Files\MySQL\MySQL Server 8.0\bin\mysql.exe: ignoring option '--no-beep' due to invalid value ''.
+Enter password: **********
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 116
+Server version: 8.0.21 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2020, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++-------------------------+
+| Database                |
++-------------------------+
+| abc                     |
+| company                 |
+| information_schema      |
+| library                 |
+| library_management      |
+| mysql                   |
+| performance_schema      |
+| prcedure_function_block |
+| sakila                  |
+| score_board             |
+| sys                     |
+| world                   |
++-------------------------+
+12 rows in set (0.05 sec)
+
+mysql> create database Hotel_Management_System;
+Query OK, 1 row affected (0.02 sec)
+
+mysql> use Hotel_Management_System;
+Database changed
+mysql> show tables;
+Empty set (0.03 sec)
+
+mysql> CREATE TABLE cab_detail(
+    ->          cab_id int PRIMARY KEY AUTO_INCREMENT,
+    ->          car_company varchar(50) NOT NULL,
+    ->          car_model varchar(50) NOT NULL,
+    ->          registration_no varchar(50) NOT NULL,
+    ->          curr_location varchar(50) NOT NULL
+    -> );
+Query OK, 0 rows affected (0.11 sec)
+
+mysql> ALTER TABLE cab_detail AUTO_INCREMENT=1001;
+Query OK, 0 rows affected (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc cab_detail;
++-----------------+-------------+------+-----+---------+----------------+
+| Field           | Type        | Null | Key | Default | Extra          |
++-----------------+-------------+------+-----+---------+----------------+
+| cab_id          | int         | NO   | PRI | NULL    | auto_increment |
+| car_company     | varchar(50) | NO   |     | NULL    |                |
+| car_model       | varchar(50) | NO   |     | NULL    |                |
+| registration_no | varchar(50) | NO   |     | NULL    |                |
+| curr_location   | varchar(50) | NO   |     | NULL    |                |
++-----------------+-------------+------+-----+---------+----------------+
+5 rows in set (0.02 sec)
+
+mysql> CREATE TABLE employee_detail(
+    ->          emp_id int PRIMARY KEY AUTO_INCREMENT,
+    ->          pass varchar(20) NOT NULL,
+    ->          emp_name varchar(50) NOT NULL,
+    ->          mobile_no varchar(15) NOT NULL,
+    ->          emil_add varchar(50) NOT NULL,
+    ->          dob varchar(20) NOT NULL,
+    ->          gender varchar(20) NOT NULL,
+    ->
+    ->          age int NOT NULL,
+    ->          designation varchar(30) NOT NULL,
+    ->          qualification varchar(30) NOT NULL,
+    ->          id_proof varchar(30) NOT NULL,
+    ->          id_number varchar(30) NOT NULL,
+    ->          address varchar(50) NOT NULL
+    -> );
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> ALTER TABLE employee_detail AUTO_INCREMENT=1001;
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> ALTER TABLE cab_detail AUTO_INCREMENT=101;
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql>
+mysql> CREATE TABLE room_detail(
+    ->          room_id int PRIMARY KEY AUTO_INCREMENT,
+    ->          room_no int NOT NULL,
+    ->          no_of_bed int NOT NULL,
+    ->          room_type varchar(30) NOT NULL,
+    ->          occupancy varchar(30) NOT NULL,
+    ->          clean_status varchar(30) NOT NULL,
+    ->          price int NOT NULL
+    -> );
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> ALTER TABLE room_detail AUTO_INCREMENT=101;
+Query OK, 0 rows affected (0.07 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> CREATE TABLE customer_detail(
+    ->          cust_id int PRIMARY KEY AUTO_INCREMENT,
+    ->          cust_name varchar(50) NOT NULL,
+    ->          mobile_no varchar(15) NOT NULL,
+    ->          email varchar(50) NOT NULL,
+    ->          nationality varchar(15) NOT NULL,
+    ->          gender varchar(15) NOT NULL,
+    ->          id_proof varchar(30) NOT NULL,
+    ->          id_number varchar(30) NOT NULL,
+    ->          room_number int NOT NULL,
+    ->
+    ->          stay_night int NOT NULL,
+    ->          total_bill int,
+    ->          advance int,
+    ->          pending int
+    -> );
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> ALTER TABLE customer_detail AUTO_INCREMENT=1001;
+Query OK, 0 rows affected (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> SHOW TABLES;
++-----------------------------------+
+| Tables_in_hotel_management_system |
++-----------------------------------+
+| cab_detail                        |
+| customer_detail                   |
+| employee_detail                   |
+| room_detail                       |
++-----------------------------------+
+4 rows in set (0.01 sec)
+
+mysql> DESC cab_detail;
++-----------------+-------------+------+-----+---------+----------------+
+| Field           | Type        | Null | Key | Default | Extra          |
++-----------------+-------------+------+-----+---------+----------------+
+| cab_id          | int         | NO   | PRI | NULL    | auto_increment |
+| car_company     | varchar(50) | NO   |     | NULL    |                |
+| car_model       | varchar(50) | NO   |     | NULL    |                |
+| registration_no | varchar(50) | NO   |     | NULL    |                |
+| curr_location   | varchar(50) | NO   |     | NULL    |                |
++-----------------+-------------+------+-----+---------+----------------+
+5 rows in set (0.01 sec)
+
+mysql> DESC employee_detail;
++---------------+-------------+------+-----+---------+----------------+
+| Field         | Type        | Null | Key | Default | Extra          |
++---------------+-------------+------+-----+---------+----------------+
+| emp_id        | int         | NO   | PRI | NULL    | auto_increment |
+| pass          | varchar(20) | NO   |     | NULL    |                |
+| emp_name      | varchar(50) | NO   |     | NULL    |                |
+| mobile_no     | varchar(15) | NO   |     | NULL    |                |
+| emil_add      | varchar(50) | NO   |     | NULL    |                |
+| dob           | varchar(20) | NO   |     | NULL    |                |
+| gender        | varchar(20) | NO   |     | NULL    |                |
+| age           | int         | NO   |     | NULL    |                |
+| designation   | varchar(30) | NO   |     | NULL    |                |
+| qualification | varchar(30) | NO   |     | NULL    |                |
+| id_proof      | varchar(30) | NO   |     | NULL    |                |
+| id_number     | varchar(30) | NO   |     | NULL    |                |
+| address       | varchar(50) | NO   |     | NULL    |                |
++---------------+-------------+------+-----+---------+----------------+
+13 rows in set (0.00 sec)
+
+mysql> DESC room_detail;
++--------------+-------------+------+-----+---------+----------------+
+| Field        | Type        | Null | Key | Default | Extra          |
++--------------+-------------+------+-----+---------+----------------+
+| room_id      | int         | NO   | PRI | NULL    | auto_increment |
+| room_no      | int         | NO   |     | NULL    |                |
+| no_of_bed    | int         | NO   |     | NULL    |                |
+| room_type    | varchar(30) | NO   |     | NULL    |                |
+| occupancy    | varchar(30) | NO   |     | NULL    |                |
+| clean_status | varchar(30) | NO   |     | NULL    |                |
+| price        | int         | NO   |     | NULL    |                |
++--------------+-------------+------+-----+---------+----------------+
+7 rows in set (0.00 sec)
+
+mysql> DESC customer_detail;
++-------------+-------------+------+-----+---------+----------------+
+| Field       | Type        | Null | Key | Default | Extra          |
++-------------+-------------+------+-----+---------+----------------+
+| cust_id     | int         | NO   | PRI | NULL    | auto_increment |
+| cust_name   | varchar(50) | NO   |     | NULL    |                |
+| mobile_no   | varchar(15) | NO   |     | NULL    |                |
+| email       | varchar(50) | NO   |     | NULL    |                |
+| nationality | varchar(15) | NO   |     | NULL    |                |
+| gender      | varchar(15) | NO   |     | NULL    |                |
+| id_proof    | varchar(30) | NO   |     | NULL    |                |
+| id_number   | varchar(30) | NO   |     | NULL    |                |
+| room_number | int         | NO   |     | NULL    |                |
+| stay_night  | int         | NO   |     | NULL    |                |
+| total_bill  | int         | YES  |     | NULL    |                |
+| advance     | int         | YES  |     | NULL    |                |
+| pending     | int         | YES  |     | NULL    |                |
++-------------+-------------+------+-----+---------+----------------+
+13 rows in set (0.00 sec)
